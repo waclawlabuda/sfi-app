@@ -1,0 +1,138 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TestComponent should display different text if checkbox was not checked 1`] = `
+<div>
+  <h2>
+    Submitted form:
+  </h2>
+  <div
+    className="summary"
+  >
+    <div>
+      <br />
+      <div
+        id="name"
+      >
+        User name is: 
+        John Doe
+      </div>
+      <br />
+      <div
+        id="age"
+      >
+        User age is: 
+        36
+         years
+      </div>
+      <br />
+      <br />
+      <div
+        id="chkbx"
+      >
+        User checked checkbox?: 
+        no
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TestComponent should not display age if not provided 1`] = `
+<div>
+  <h2>
+    Submitted form:
+  </h2>
+  <div
+    className="summary"
+  >
+    <div>
+      <br />
+      <div
+        id="name"
+      >
+        User name is: 
+        John Doe
+      </div>
+      <br />
+      
+      <br />
+      <br />
+      <div
+        id="chkbx"
+      >
+        User checked checkbox?: 
+        yes
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TestComponent should not display name if not provided 1`] = `
+<div>
+  <h2>
+    Submitted form:
+  </h2>
+  <div
+    className="summary"
+  >
+    <div>
+      <br />
+      
+      <br />
+      <div
+        id="age"
+      >
+        User age is: 
+        36
+         years
+      </div>
+      <br />
+      <br />
+      <div
+        id="chkbx"
+      >
+        User checked checkbox?: 
+        yes
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TestComponent should render properly 1`] = `
+<div>
+  <h2>
+    Submitted form:
+  </h2>
+  <div
+    className="summary"
+  >
+    <div>
+      <br />
+      <div
+        id="name"
+      >
+        User name is: 
+        John Doe
+      </div>
+      <br />
+      <div
+        id="age"
+      >
+        User age is: 
+        36
+         years
+      </div>
+      <br />
+      <br />
+      <div
+        id="chkbx"
+      >
+        User checked checkbox?: 
+        yes
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -1,0 +1,103 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EnzymeSample should render properly 1`] = `
+<div>
+  <h2>
+    Some random heading
+  </h2>
+  <form
+    className="form"
+  >
+    <div>
+      <br />
+      <input
+        id="name_input"
+        onChange={[Function]}
+        placeholder="Write your name"
+        type="text"
+        value=""
+      />
+      <br />
+      <input
+        id="age_input"
+        onChange={[Function]}
+        placeholder="Age"
+        type="number"
+        value=""
+      />
+      <br />
+      <br />
+      <label
+        htmlFor="checkbox"
+      >
+        <input
+          checked={false}
+          id="checkbox"
+          onChange={[Function]}
+          type="checkbox"
+        />
+        check me!
+      </label>
+    </div>
+    <button
+      disabled={true}
+      onClick={[Function]}
+    >
+      Submit!
+    </button>
+  </form>
+</div>
+`;
+
+exports[`EnzymeSample should render properly 2`] = `
+<EnzymeSample
+  onSubmit={[MockFunction]}
+>
+  <div>
+    <h2>
+      Some random heading
+    </h2>
+    <form
+      className="form"
+    >
+      <div>
+        <br />
+        <input
+          id="name_input"
+          onChange={[Function]}
+          placeholder="Write your name"
+          type="text"
+          value=""
+        />
+        <br />
+        <input
+          id="age_input"
+          onChange={[Function]}
+          placeholder="Age"
+          type="number"
+          value=""
+        />
+        <br />
+        <br />
+        <label
+          htmlFor="checkbox"
+        >
+          <input
+            checked={false}
+            id="checkbox"
+            onChange={[Function]}
+            type="checkbox"
+          />
+          check me!
+        </label>
+      </div>
+      <button
+        disabled={true}
+        onClick={[Function]}
+      >
+        Submit!
+      </button>
+    </form>
+  </div>
+</EnzymeSample>
+`;
