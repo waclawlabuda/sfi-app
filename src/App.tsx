@@ -9,13 +9,13 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          {/* <JestSample /> */}
+          <JestSample />
           {/* <EnzymeSample onSubmit={() => console.log('submitted!')} /> */}
-          <TestComponent
+          {/* <TestComponent
             name={'John Doe'}
             age={'36'}
             checked={true}
-          />
+          /> */}
         </header>
       </div>
     );

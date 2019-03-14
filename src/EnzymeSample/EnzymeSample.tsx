@@ -20,7 +20,7 @@ class EnzymeSample extends React.Component<EnzymeSampleProps, EnzymeSampleState>
       error: false,
    }
 
-   public onNameChange = (e) => {
+   onNameChange = (e) => {
       const newName = e.target.value;
       if (/\d/.test(newName)) {
          this.setState({ error: true });

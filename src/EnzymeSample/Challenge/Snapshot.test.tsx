@@ -1,7 +1,6 @@
 import React from 'react';
 import testRenderer from 'react-test-renderer';
 import TestComponent, { TestComponentProps } from './TestComponent';
-import { ShallowWrapper, ReactWrapper, mount, shallow } from 'enzyme';
 
 const setup = (propsOverride?: Partial<TestComponentProps>) => {
     const props = {
