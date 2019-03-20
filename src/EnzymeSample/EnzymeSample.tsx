@@ -9,7 +9,7 @@ export interface EnzymeSampleState {
 
 export interface EnzymeSampleProps {
    className?: string;
-   onSubmit(): void;
+   onSubmit(data?: Pick<EnzymeSampleState, 'name' | 'age' | 'checked'>): void;
 }
 
 class EnzymeSample extends React.Component<EnzymeSampleProps, EnzymeSampleState> {
@@ -39,13 +39,17 @@ class EnzymeSample extends React.Component<EnzymeSampleProps, EnzymeSampleState>
    }
 
    onSubmitHandle = () => {
+      this.props.onSubmit({
+         name: this.state.name,
+         age: this.state.age,
+         checked: this.state.checked,
+      });
+
       this.setState({
          name: '',
          age: '',
          checked: false,
       });
-
-      this.props.onSubmit();
    }
 
    render() {
