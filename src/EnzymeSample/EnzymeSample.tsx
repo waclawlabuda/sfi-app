@@ -1,4 +1,5 @@
 import React from 'react';
+import AgeInput from './AgeInput';
 
 export interface EnzymeSampleState {
    name: string;
@@ -67,13 +68,7 @@ class EnzymeSample extends React.Component<EnzymeSampleProps, EnzymeSampleState>
                      onChange={this.onNameChange}
                   />
                   <br />
-                  <input
-                     type='number'
-                     id="age_input"
-                     placeholder='Age'
-                     value={age}
-                     onChange={this.onAgeChange}
-                  />
+                  <AgeInput age={age} onAgeChange={this.onAgeChange} />
                   <br />
                   <br />
                   <label

@@ -70,13 +70,18 @@ exports[`EnzymeSample should render properly 2`] = `
           value=""
         />
         <br />
-        <input
-          id="age_input"
-          onChange={[Function]}
-          placeholder="Age"
-          type="number"
-          value=""
-        />
+        <AgeInput
+          age=""
+          onAgeChange={[Function]}
+        >
+          <input
+            id="age_input"
+            onChange={[Function]}
+            placeholder="Age"
+            type="number"
+            value=""
+          />
+        </AgeInput>
         <br />
         <br />
         <label
