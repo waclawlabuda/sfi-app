@@ -81,7 +81,6 @@ describe('EnzymeSample', () => {
         expect(button.prop('disabled')).toBeFalsy();
     });
 
-    // ???
     it('should call onSubmit when button was clicked', () => {
         const { component, props } = setup();
         component.find('button').simulate('click');
