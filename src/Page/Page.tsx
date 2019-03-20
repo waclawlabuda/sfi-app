@@ -51,6 +51,30 @@ class Candidate extends React.Component<{ id: number }, CandidateState> {
     }
 }
 
+class AllCandidates extends React.Component<any, any> {
+    componentDidMount() {
+        this.getCandidates();
+    }
+
+    getCandidates = async () => {
+        try {
+            const res = await fetch(`${API}/candidates`);
+            const data = await res.json();
+            this.setState({ candidates: [...data] });
+        } catch (e) {
+            console.error('Nie pobrano');
+        }
+    }
+
+    render() {
+        return this.state && this.state.candidates && this.state.candidates.map((candidate) => (
+            <div>
+                <b>{candidate.name}</b> - age: {candidate.age} years <Link to={`/candidate/${candidate.id}`}>[link]</Link>
+            </div>
+        ));
+    }
+}
+
 class Page extends React.Component<PageProps, PageState> {
     onAddFactory = (history) => async (data) => {
         try {
@@ -83,7 +107,7 @@ class Page extends React.Component<PageProps, PageState> {
                     <Candidate id={match.params.id} />
                 )} />
                 <Route path={'/'} exact={true} render={({ match }) => (
-                    'Everything!'
+                    <AllCandidates />
                 )}
                 />
             </BrowserRouter>
