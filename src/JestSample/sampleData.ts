@@ -27,4 +27,33 @@ const candidates: candidate[] = [
     },
 ];
 
+export const newCandidates: candidate[] = [
+    {
+        name: 'John Snow',
+        votesUp: 4444,
+        votesDown: 3333,
+    },
+    {
+        name: '	Jaime Lannister',
+        votesUp: 1234,
+        votesDown: 4321,
+    },
+    {
+        name: 'Daenerys Targaryen',
+        votesUp: 8907,
+        votesDown: 4567,
+    },
+    {
+        name: 'Robb Stark',
+        votesUp: 8301,
+        votesDown: 1001,
+    },
+];
+
+export const improvedCandidatesList = [
+    ...newCandidates,
+    undefined,
+    undefined,
+];
+
 export default candidates;
