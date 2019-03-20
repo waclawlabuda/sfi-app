@@ -54,14 +54,6 @@ describe('EnzymeSample', () => {
                 .find('input')
                 .simulate('change');
             expect(component.state('checked')).toBeTruthy();
-
-            // component.instance().onCheckboxChange = jest.fn();
-            // component.update();
-            // component
-            //     .find('label')
-            //     .find('input')
-            //     .simulate('change');
-            // expect(component.instance().onCheckboxChange).toBeCalled();
         });
 
         it('should not display error message', () => {
