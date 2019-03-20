@@ -8,6 +8,13 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <Page />
+          {/* <JestSample /> */}
+          {/* <EnzymeSample onSubmit={() => console.log('submitted!')} /> */}	
+          {/* <TestComponent	
+            name={'John Doe'}	
+            age={'36'}	
+            checked={true}	
+          /> */}
         </header>
       </div>
     );
