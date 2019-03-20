@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
 import Page from './Page/Page';
+// import JestSample from './JestSample/JestSample';
+// import EnzymeSample from './EnzymeSample/EnzymeSample';
+// import TestComponent from './EnzymeSample/Challenge/TestComponent';
 
 class App extends Component {
   render() {
@@ -9,7 +12,7 @@ class App extends Component {
         <header className="App-header">
           <Page />
           {/* <JestSample /> */}
-          {/* <EnzymeSample onSubmit={() => console.log('submitted!')} /> */}	
+          {/* <EnzymeSample onSubmit={() => console.log('submitted!')} />	 */}
           {/* <TestComponent	
             name={'John Doe'}	
             age={'36'}	

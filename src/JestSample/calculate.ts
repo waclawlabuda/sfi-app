@@ -45,3 +45,8 @@ export const lowestRatio = (candidates: candidate[]): LowestRatio => {
 
     return lowestRatio;
 }
+
+export const getFavouriteCandidates = (candidates?: any) => {
+    const favourites = candidates && candidates.filter(candidate => candidate.votesUp > 5000) || [];
+    return favourites.length ? favourites : undefined;
+}
