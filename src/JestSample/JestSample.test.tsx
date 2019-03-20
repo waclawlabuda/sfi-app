@@ -57,6 +57,7 @@ describe('basic methods on different data (newCandidates)', () => {
   // check if winner votesDown are greater or equal than 1000 with .toBeGreaterThanOrEqual(number)
   // check getFavouriteCandidates() with .toBeUndefined()
   // check getFavouriteCandidates(improvedCandidatesList) with .toHaveLength()
+  // write test to check returned data for getFavouriteCandidates(newCandidates)
 });
 
 /** ######################## part 2 ######################## */

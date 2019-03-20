@@ -1,55 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`EnzymeSample should render properly 1`] = `
-<div>
-  <h2>
-    Some random heading
-  </h2>
-  <form
-    className="form"
-  >
-    <div>
-      <br />
-      <input
-        id="name_input"
-        onChange={[Function]}
-        placeholder="Write your name"
-        type="text"
-        value=""
-      />
-      <br />
-      <input
-        id="age_input"
-        onChange={[Function]}
-        placeholder="Age"
-        type="number"
-        value=""
-      />
-      <br />
-      <br />
-      <label
-        htmlFor="checkbox"
-      >
-        <input
-          checked={false}
-          id="checkbox"
-          onChange={[Function]}
-          type="checkbox"
-        />
-        check me!
-      </label>
-    </div>
-    <button
-      disabled={true}
-      onClick={[Function]}
-    >
-      Submit!
-    </button>
-  </form>
-</div>
-`;
-
-exports[`EnzymeSample should render properly 2`] = `
+exports[`EnzymeSample should be disabled if inputs are invalid 1`] = `
 <EnzymeSample
   onSubmit={[MockFunction]}
 >
@@ -103,6 +54,462 @@ exports[`EnzymeSample should render properly 2`] = `
         Submit!
       </button>
     </form>
+    <br />
+    <input
+      onClick={[Function]}
+      type="button"
+      value="Clear"
+    />
   </div>
 </EnzymeSample>
+`;
+
+exports[`EnzymeSample should be enabled if inputs are valid 1`] = `
+<EnzymeSample
+  onSubmit={[MockFunction]}
+>
+  <div>
+    <h2>
+      Some random heading
+    </h2>
+    <form
+      className="form"
+    >
+      <div>
+        <br />
+        <input
+          id="name_input"
+          onChange={[Function]}
+          placeholder="Write your name"
+          type="text"
+          value="John Doe"
+        />
+        <br />
+        <AgeInput
+          age="44"
+          onAgeChange={[Function]}
+        >
+          <input
+            id="age_input"
+            onChange={[Function]}
+            placeholder="Age"
+            type="number"
+            value="44"
+          />
+        </AgeInput>
+        <br />
+        <br />
+        <label
+          htmlFor="checkbox"
+        >
+          <input
+            checked={true}
+            id="checkbox"
+            onChange={[Function]}
+            type="checkbox"
+          />
+          check me!
+        </label>
+      </div>
+      <button
+        disabled={false}
+        onClick={[Function]}
+      >
+        Submit!
+      </button>
+    </form>
+    <br />
+    <input
+      onClick={[Function]}
+      type="button"
+      value="Clear"
+    />
+  </div>
+</EnzymeSample>
+`;
+
+exports[`EnzymeSample should change state on checkbox click (checked -> true) 1`] = `
+<EnzymeSample
+  onSubmit={[MockFunction]}
+>
+  <div>
+    <h2>
+      Some random heading
+    </h2>
+    <form
+      className="form"
+    >
+      <div>
+        <br />
+        <input
+          id="name_input"
+          onChange={[Function]}
+          placeholder="Write your name"
+          type="text"
+          value=""
+        />
+        <br />
+        <AgeInput
+          age=""
+          onAgeChange={[Function]}
+        >
+          <input
+            id="age_input"
+            onChange={[Function]}
+            placeholder="Age"
+            type="number"
+            value=""
+          />
+        </AgeInput>
+        <br />
+        <br />
+        <label
+          htmlFor="checkbox"
+        >
+          <input
+            checked={true}
+            id="checkbox"
+            onChange={[Function]}
+            type="checkbox"
+          />
+          check me!
+        </label>
+      </div>
+      <button
+        disabled={true}
+        onClick={[Function]}
+      >
+        Submit!
+      </button>
+    </form>
+    <br />
+    <input
+      onClick={[Function]}
+      type="button"
+      value="Clear"
+    />
+  </div>
+</EnzymeSample>
+`;
+
+exports[`EnzymeSample should clear all fields on button click 1`] = `
+<EnzymeSample
+  onSubmit={
+    [MockFunction] {
+      "calls": Array [
+        Array [
+          Object {
+            "age": "44",
+            "checked": true,
+            "name": "John Doe",
+          },
+        ],
+      ],
+      "results": Array [
+        Object {
+          "isThrow": false,
+          "value": undefined,
+        },
+      ],
+    }
+  }
+>
+  <div>
+    <h2>
+      Some random heading
+    </h2>
+    <form
+      className="form"
+    >
+      <div>
+        <br />
+        <input
+          id="name_input"
+          onChange={[Function]}
+          placeholder="Write your name"
+          type="text"
+          value=""
+        />
+        <br />
+        <AgeInput
+          age=""
+          onAgeChange={[Function]}
+        >
+          <input
+            id="age_input"
+            onChange={[Function]}
+            placeholder="Age"
+            type="number"
+            value=""
+          />
+        </AgeInput>
+        <br />
+        <br />
+        <label
+          htmlFor="checkbox"
+        >
+          <input
+            checked={false}
+            id="checkbox"
+            onChange={[Function]}
+            type="checkbox"
+          />
+          check me!
+        </label>
+      </div>
+      <button
+        disabled={true}
+        onClick={[Function]}
+      >
+        Submit!
+      </button>
+    </form>
+    <br />
+    <input
+      onClick={[Function]}
+      type="button"
+      value="Clear"
+    />
+  </div>
+</EnzymeSample>
+`;
+
+exports[`EnzymeSample should display error message when user type number into name input 1`] = `
+<EnzymeSample
+  onSubmit={[MockFunction]}
+>
+  <div>
+    <h2>
+      Some random heading
+    </h2>
+    <form
+      className="form"
+    >
+      <div>
+        <span
+          className="error"
+        >
+          name cannot have numbers
+        </span>
+        <br />
+        <input
+          id="name_input"
+          onChange={[Function]}
+          placeholder="Write your name"
+          type="text"
+          value="1234"
+        />
+        <br />
+        <AgeInput
+          age=""
+          onAgeChange={[Function]}
+        >
+          <input
+            id="age_input"
+            onChange={[Function]}
+            placeholder="Age"
+            type="number"
+            value=""
+          />
+        </AgeInput>
+        <br />
+        <br />
+        <label
+          htmlFor="checkbox"
+        >
+          <input
+            checked={false}
+            id="checkbox"
+            onChange={[Function]}
+            type="checkbox"
+          />
+          check me!
+        </label>
+      </div>
+      <button
+        disabled={true}
+        onClick={[Function]}
+      >
+        Submit!
+      </button>
+    </form>
+    <br />
+    <input
+      onClick={[Function]}
+      type="button"
+      value="Clear"
+    />
+  </div>
+</EnzymeSample>
+`;
+
+exports[`EnzymeSample should render properly (using mount) 1`] = `
+<EnzymeSample
+  onSubmit={[MockFunction]}
+>
+  <div>
+    <h2>
+      Some random heading
+    </h2>
+    <form
+      className="form"
+    >
+      <div>
+        <br />
+        <input
+          id="name_input"
+          onChange={[Function]}
+          placeholder="Write your name"
+          type="text"
+          value=""
+        />
+        <br />
+        <AgeInput
+          age=""
+          onAgeChange={[Function]}
+        >
+          <input
+            id="age_input"
+            onChange={[Function]}
+            placeholder="Age"
+            type="number"
+            value=""
+          />
+        </AgeInput>
+        <br />
+        <br />
+        <label
+          htmlFor="checkbox"
+        >
+          <input
+            checked={false}
+            id="checkbox"
+            onChange={[Function]}
+            type="checkbox"
+          />
+          check me!
+        </label>
+      </div>
+      <button
+        disabled={true}
+        onClick={[Function]}
+      >
+        Submit!
+      </button>
+    </form>
+    <br />
+    <input
+      onClick={[Function]}
+      type="button"
+      value="Clear"
+    />
+  </div>
+</EnzymeSample>
+`;
+
+exports[`EnzymeSample should render properly (using renderer) 1`] = `
+<div>
+  <h2>
+    Some random heading
+  </h2>
+  <form
+    className="form"
+  >
+    <div>
+      <br />
+      <input
+        id="name_input"
+        onChange={[Function]}
+        placeholder="Write your name"
+        type="text"
+        value=""
+      />
+      <br />
+      <input
+        id="age_input"
+        onChange={[Function]}
+        placeholder="Age"
+        type="number"
+        value=""
+      />
+      <br />
+      <br />
+      <label
+        htmlFor="checkbox"
+      >
+        <input
+          checked={false}
+          id="checkbox"
+          onChange={[Function]}
+          type="checkbox"
+        />
+        check me!
+      </label>
+    </div>
+    <button
+      disabled={true}
+      onClick={[Function]}
+    >
+      Submit!
+    </button>
+  </form>
+  <br />
+  <input
+    onClick={[Function]}
+    type="button"
+    value="Clear"
+  />
+</div>
+`;
+
+exports[`EnzymeSample should render properly (using shallow) 1`] = `
+<div>
+  <h2>
+    Some random heading
+  </h2>
+  <form
+    className="form"
+  >
+    <div>
+      <br />
+      <input
+        id="name_input"
+        onChange={[Function]}
+        placeholder="Write your name"
+        type="text"
+        value=""
+      />
+      <br />
+      <AgeInput
+        age=""
+        onAgeChange={[Function]}
+      />
+      <br />
+      <br />
+      <label
+        htmlFor="checkbox"
+      >
+        <input
+          checked={false}
+          id="checkbox"
+          onChange={[Function]}
+          type="checkbox"
+        />
+        check me!
+      </label>
+    </div>
+    <button
+      disabled={true}
+      onClick={[Function]}
+    >
+      Submit!
+    </button>
+  </form>
+  <br />
+  <input
+    onClick={[Function]}
+    type="button"
+    value="Clear"
+  />
+</div>
 `;

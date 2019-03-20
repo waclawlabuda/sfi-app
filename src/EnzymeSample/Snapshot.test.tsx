@@ -14,7 +14,7 @@ const setup = (propsOverride?: Partial<EnzymeSampleProps>) => {
         <EnzymeSample {...props} />
     );
 
-    const component: ShallowWrapper<EnzymeSampleProps, EnzymeSampleState> = shallow(<EnzymeSample {...props} />);
+    const component: ShallowWrapper = shallow(<EnzymeSample {...props} />);
     const mountedComponent: ReactWrapper = mount(<EnzymeSample {...props} />);
 
     return {
@@ -26,80 +26,81 @@ const setup = (propsOverride?: Partial<EnzymeSampleProps>) => {
 }
 
 describe('EnzymeSample', () => {
-    it('should render properly', () => {
+    it('should render properly (using renderer)', () => {
         const { renderer } = setup();
         expect(renderer().toJSON()).toMatchSnapshot();
     });
 
-    it('should render properly', () => {
+    it('should render properly (using mount)', () => {
         const { mountedComponent } = setup();
         expect(toJson(mountedComponent)).toMatchSnapshot();
     });
 
-    it('should display error message when user type number into name input', () => {
+    it('should render properly (using shallow)', () => {
         const { component } = setup();
+        expect(toJson(component)).toMatchSnapshot();
+    });
 
-        expect(component.state('error')).toBeFalsy();
-        expect(component.find('.error')).toHaveLength(0);
+    it('should display error message when user type number into name input', () => {
+        const { mountedComponent } = setup();
 
-        component.find('#name_input').simulate('change', { target: {
+        mountedComponent.find('#name_input').simulate('change', { target: {
             value: '1234'
         }});
-
-        expect(component.state('error')).toBeTruthy();
-        expect(component.find('.error')).toHaveLength(1);
+        
+        expect(toJson(mountedComponent)).toMatchSnapshot();
     });
 
     it('should change state on checkbox click (checked -> true)', () => {
-        const { component } = setup();
+        const { mountedComponent } = setup();
 
-        expect(component.state('checked')).toBeFalsy();
+        expect(mountedComponent.state('checked')).toBeFalsy();
 
-        component
+        mountedComponent
             .find('label')
             .find('input')
             .simulate('change');
 
-        expect(component.state('checked')).toBeTruthy();
+        expect(toJson(mountedComponent)).toMatchSnapshot();
     });
 
     it('should be disabled if inputs are invalid', () => {
-        const { component } = setup();
-        const button = component.find('button');
-        expect(button.prop('disabled')).toBeTruthy();
+        const { mountedComponent } = setup();
+
+        expect(toJson(mountedComponent)).toMatchSnapshot();
     });
 
     it('should be enabled if inputs are valid', () => {
-        const { component } = setup();
-        component.setState({
+        const { mountedComponent } = setup();
+
+        mountedComponent.setState({
             name: 'John Doe',
             age: '44',
             checked: true,
             error: false,
         });
-        const button = component.find('button');
-        expect(button.prop('disabled')).toBeFalsy();
+
+        expect(toJson(mountedComponent)).toMatchSnapshot();
     });
 
     it('should call onSubmit when button was clicked', () => {
         const { component, props } = setup();
         component.find('button').simulate('click');
-        expect(props.onSubmit).toBeCalled();
+        expect(props.onSubmit).toBeCalled();    // wut?
     });
 
     it('should clear all fields on button click', () => {
-        const { component } = setup();
-        component.setState({
+        const { mountedComponent } = setup();
+
+        mountedComponent.setState({
             name: 'John Doe',
             age: '44',
             checked: true,
         });
 
-        const button = component.find('button');
+        const button = mountedComponent.find('button');
         button.simulate('click');
 
-        expect(component.state('name')).toBe('');
-        expect(component.state('age')).toBe('');
-        expect(component.state('checked')).toBeFalsy();
+        expect(toJson(mountedComponent)).toMatchSnapshot();
     });
 });

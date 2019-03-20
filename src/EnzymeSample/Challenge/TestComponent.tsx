@@ -18,7 +18,7 @@ class TestComponent extends React.PureComponent<TestComponentProps, {}> {
 
       return (
          <div className={className}>
-            <h2>Submitted form:</h2>
+            <h3>Submitted form:</h3>
             <div className='summary'>
                <div>
                   <br />

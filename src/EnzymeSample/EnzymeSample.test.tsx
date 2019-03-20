@@ -1,6 +1,7 @@
 import React from 'react';
 import { shallow, mount, ReactWrapper, ShallowWrapper } from 'enzyme';
 import EnzymeSample, { EnzymeSampleProps, EnzymeSampleState } from './EnzymeSample';
+import AgeInput from './AgeInput';
 
 describe('EnzymeSample', () => {
     let component: ReactWrapper<EnzymeSampleProps, EnzymeSampleState>;
@@ -40,6 +41,11 @@ describe('EnzymeSample', () => {
             const ageInput = component.find('input#age_input');
             expect(ageInput).toHaveLength(1);
             expect(ageInput.prop('placeholder')).toBe('Age');
+        });
+
+        it('should find AgeInput component', () => {
+            const input = component.find(AgeInput);
+            expect(input).toHaveLength(1);
         });
 
         it('should display one checkbox', () => {

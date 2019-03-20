@@ -2,96 +2,109 @@ import React from 'react';
 import AgeInput from './AgeInput';
 
 export interface EnzymeSampleState {
-   name: string;
-   age: string;
-   checked: boolean;
-   error: boolean;
+  name: string;
+  age: string;
+  checked: boolean;
+  error: boolean;
 }
 
 export interface EnzymeSampleProps {
-   className?: string;
-   onSubmit(data?: Pick<EnzymeSampleState, 'name' | 'age' | 'checked'>): void;
+  className?: string;
+  onSubmit(data?: Pick<EnzymeSampleState, 'name' | 'age' | 'checked'>): void;
 }
 
 class EnzymeSample extends React.Component<EnzymeSampleProps, EnzymeSampleState> {
-   state = {
+  state = {
+    name: '',
+    age: '',
+    checked: false,
+    error: false,
+  };
+
+  onNameChange = (e) => {
+    const newName = e.target.value;
+    if (/\d/.test(newName)) {
+      this.setState({ error: true });
+    } else {
+      this.setState({ error: false });
+    }
+    this.setState({ name: e.target.value });
+  };
+
+  onAgeChange = (e) => {
+    this.setState({ age: e.target.value });
+  };
+
+  onCheckboxChange = () => {
+    this.setState((prevState) => ({ checked: !prevState.checked }));
+  };
+
+  onSubmitHandle = () => {
+    this.props.onSubmit({
+      name: this.state.name,
+      age: this.state.age,
+      checked: this.state.checked,
+    });
+
+    this.setState({
       name: '',
       age: '',
       checked: false,
-      error: false,
-   }
+    });
+  };
 
-   onNameChange = (e) => {
-      const newName = e.target.value;
-      if (/\d/.test(newName)) {
-         this.setState({ error: true });
-      } else {
-         this.setState({ error: false });
-      }
-      this.setState({ name: e.target.value });
-   }
+  onClearHandle = () => {
+    this.setState({
+      name: '',
+      age: '',
+      checked: false,
+    });
+  };
 
-   onAgeChange = (e) => {
-      this.setState({ age: e.target.value });
-   }
+  render() {
+    const { name, age, checked, error } = this.state;
+    const { className } = this.props;
 
-   onCheckboxChange = () => {
-      this.setState((prevState) => ({ checked: !prevState.checked }));
-   }
-
-   onSubmitHandle = () => {
-      this.props.onSubmit({
-         name: this.state.name,
-         age: this.state.age,
-         checked: this.state.checked,
-      });
-
-      this.setState({
-         name: '',
-         age: '',
-         checked: false,
-      });
-   }
-
-   render() {
-      const { name, age, checked, error } = this.state;
-      const { className } = this.props;
-
-      return (
-         <div className={className}>
-            <h2>Some random heading</h2>
-            <form className='form'>
-               <div>
-                  {error && <span className='error'>name cannot have numbers</span>}
-                  <br />
-                  <input
-                     type='text'
-                     id="name_input"
-                     placeholder='Write your name'
-                     value={name}
-                     onChange={this.onNameChange}
-                  />
-                  <br />
-                  <AgeInput age={age} onAgeChange={this.onAgeChange} />
-                  <br />
-                  <br />
-                  <label
-                     htmlFor='checkbox'
-                  >
-                     <input
-                        id='checkbox'
-                        type='checkbox'
-                        checked={checked}
-                        onChange={this.onCheckboxChange}
-                     />
-                     check me!
-                  </label>
-               </div>
-               <button onClick={this.onSubmitHandle} disabled={!Boolean(name && age && checked && !error)}>Submit!</button>
-            </form>
-         </div>
-      )
-   }
+    return (
+      <div className={className}>
+        <h2>Some random heading</h2>
+        <form className="form">
+          <div>
+            {error && <span className="error">name cannot have numbers</span>}
+            <br />
+            <input
+              type="text"
+              id="name_input"
+              placeholder="Write your name"
+              value={name}
+              onChange={this.onNameChange}
+            />
+            <br />
+            <AgeInput age={age} onAgeChange={this.onAgeChange} />
+            <br />
+            <br />
+            <label htmlFor="checkbox">
+              <input
+                id="checkbox"
+                type="checkbox"
+                checked={checked}
+                onChange={this.onCheckboxChange}
+              />
+              check me!
+            </label>
+          </div>
+          <button
+            onClick={this.onSubmitHandle}
+            disabled={!Boolean(name && age && checked && !error)}
+          >
+            Submit!
+          </button>
+        </form>
+        <br />
+        <input type='button' onClick={this.onClearHandle} value='Clear'/>
+      </div>
+    );
+  }
 }
 
 export default EnzymeSample;

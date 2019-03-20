@@ -2,9 +2,9 @@
 
 exports[`TestComponent should display different text if checkbox was not checked 1`] = `
 <div>
-  <h2>
+  <h3>
     Submitted form:
-  </h2>
+  </h3>
   <div
     className="summary"
   >
@@ -39,9 +39,9 @@ exports[`TestComponent should display different text if checkbox was not checked
 
 exports[`TestComponent should not display age if not provided 1`] = `
 <div>
-  <h2>
+  <h3>
     Submitted form:
-  </h2>
+  </h3>
   <div
     className="summary"
   >
@@ -70,9 +70,9 @@ exports[`TestComponent should not display age if not provided 1`] = `
 
 exports[`TestComponent should not display name if not provided 1`] = `
 <div>
-  <h2>
+  <h3>
     Submitted form:
-  </h2>
+  </h3>
   <div
     className="summary"
   >
@@ -102,9 +102,9 @@ exports[`TestComponent should not display name if not provided 1`] = `
 
 exports[`TestComponent should render properly 1`] = `
 <div>
-  <h2>
+  <h3>
     Submitted form:
-  </h2>
+  </h3>
   <div
     className="summary"
   >
