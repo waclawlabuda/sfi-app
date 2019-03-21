@@ -3,6 +3,11 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+// import 'whatwg-fetch';
+import {fetch as fetchPolyfill} from 'whatwg-fetch'
+
+window.fetch = fetchPolyfill;
+// fetchPolyfill(...)
 
 ReactDOM.render(<App />, document.getElementById('root'));
 

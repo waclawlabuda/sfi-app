@@ -69,11 +69,13 @@ class AllCandidates extends React.Component<any, any> {
     render() {
         return <>
             <h1>All candidates:</h1>
+            <div data-qa="CandidatesList">
             {this.state && this.state.candidates && this.state.candidates.map((candidate) => (
-                <div>
+                <div data-qa="Candidate">
                     <b>{candidate.name}</b> - age: {candidate.age} years <Link to={`/candidate/${candidate.id}`}>[link]</Link>
                 </div>
             ))}
+            </div>
         </>;
     }
 }
