@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
-import Page from './Page/Page';
-// import JestSample from './JestSample/JestSample';
-import EnzymeSample from './EnzymeSample/EnzymeSample';
+// import Page from './Page/Page';
+import JestSample from './JestSample/JestSample';
+// import EnzymeSample from './EnzymeSample/EnzymeSample';
 // import TestComponent from './EnzymeSample/Challenge/TestComponent';
 
 class App extends Component {
@@ -11,8 +11,8 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           {/* <Page /> */}
-          {/* <JestSample /> */}
-          <EnzymeSample onSubmit={() => console.log('submitted!')} />	
+          <JestSample />
+          {/* <EnzymeSample onSubmit={() => console.log('submitted!')} />	 */}
           {/* <TestComponent	
             name={'John Doe'}	
             age={'36'}	
